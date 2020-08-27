@@ -1,0 +1,7 @@
+{
+  "name": "Blogapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eduardo Mantz",
+  "license": "MIT"
+}
