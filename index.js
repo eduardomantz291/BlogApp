@@ -3,6 +3,7 @@
   const handlebars = require("express-handlebars");
   const bodyParser = require("body-Parser")
   const app = express();
+  const path = require("path");
   const admin = require("./routes/admin")
   //const mongoose = require("mongoose");
 
@@ -15,8 +16,17 @@
     app.set("view engine", "handlebars");
   // Mongoose
     //Em breve
-  //
+  //Public
+    app.use(express.static(path.join(__dirname, "public")));
 //Rotas 
+  app.get("/", (req, res) => {
+    res.send("rota principal");
+  });
+
+  app.get("/", (req, res) => {
+    res.send("rota de posts");
+  });
+
   app.use("/admin", admin)
 //Outros
 const PORT= 5500

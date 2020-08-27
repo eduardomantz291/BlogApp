@@ -2,15 +2,15 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.send("Pagina Admin");
+  res.render("admin/index");
 });
 
 router.get("/post", (req, res) => {
-  res.send("pagina de  post");
+  res.render("pagina de  post");
 });
 
 router.get("/categorias", (req, res) => {
-  res.send("Pagina de categorias");
+  res.render("Pagina de categorias");
 });
 
 module.exports = router;
