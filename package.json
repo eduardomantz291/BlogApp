@@ -18,8 +18,10 @@
   "homepage": "https://github.com/eduardomantz291/RegisterWeb#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
     "mongoose": "^5.10.1",
     "path": "^0.12.7"
   },
