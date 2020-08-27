@@ -39,11 +39,6 @@
     })
   //Public
     app.use(express.static(path.join(__dirname, "public")));
-
-    app.use((req, res, next) => {
-      console.log("oi ssou gay");
-      next()
-    })
 //Rotas 
   app.get("/", (req, res) => {
     res.send("rota principal");
