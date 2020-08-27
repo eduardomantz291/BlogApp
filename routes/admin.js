@@ -9,8 +9,12 @@ router.get("/post", (req, res) => {
   res.render("pagina de  post");
 });
 
-router.get("/categorias", (req, res) => {
-  res.render("Pagina de categorias");
+router.get("/categoria", (req, res) => {
+  res.render("./admin/categorias");
 });
+
+router.get("/categorias/add", (req, res) => {
+  res.render("./admin/addcategorias")
+})
 
 module.exports = router;
