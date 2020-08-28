@@ -10,6 +10,10 @@
       <small>Data de criação: {{this.date}}</small><br/>
       <hr>
       <a href="/admin/categorias/edit/{{_id}}"><button class="btn btn-success mt-2">Editar Categoria</button></a>
+      <form action="" method="POST">
+        <input type="hidden" name="id" value="{{this._id}}"> 
+        <button type="submit" class="btn btn-danger px-2 mt-2">Deletar Categoria</button>
+      </form>
     </div>
   </div>
 {{else}}
