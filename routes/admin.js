@@ -12,9 +12,14 @@ router.get("/post", (req, res) => {
   res.render("pagina de  post");
 });
 
-router.get("/categoria", (req, res) => {
-  res.render("./admin/categorias");
-});
+router.get('/categorias', (req, res) => {
+  Categoria.find().sort({date: "desc"}).then((categorias) => {
+      res.render('./admin/categorias', {categorias: categorias.map(categorias => categorias.toJSON())})    
+  }).catch((err) => {
+      req.flash("error_msg", "Houve um erro ao listar a categorias")
+      res.redirect("/admin")
+  });
+})
 
 router.get("/categorias/add", (req, res) => {
   res.render("./admin/addcategorias")
@@ -38,7 +43,7 @@ router.post("/categoria/nova", (req, res) => {
   }
   
   if (erros.length > 0) {
-    res.render("admin/addcategoria", {erros: erros,})
+    res.render("admin/addcategorias", {erros: erros,})
   }else {
     const novaCategoria = {
       nome: req.body.nome,
@@ -47,8 +52,8 @@ router.post("/categoria/nova", (req, res) => {
   
     new Categoria(novaCategoria).save().then(() => {
       req.flash("success_msg", "Categoria criada com sucesso!")
-      res.redirect("/admin/categoria")
-    }).catch( err => {
+      res.redirect("/admin/categorias")
+    }).catch( () => {
       req.flash("error_msg", "Houve um erro ao salvar a categoria, tente novamentes")
       res.redirect("/admin")
     })

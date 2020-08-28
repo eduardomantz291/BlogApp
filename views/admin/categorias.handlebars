@@ -1,3 +1,14 @@
 <h1>Lista de Categorias: </h1>
 <hr>
 <a href="/admin/categorias/add"><button class="btn btn-success">Nova categorias</button></a>
+
+{{#each categorias}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h4>{{this.nome}}</h4>
+      <small>Slug: {{this.slug}}</small>
+      <small>Data de criação: {{this.date}}</small>
+    </div>
+  </div>
+{{else}}
+{{/each}}
