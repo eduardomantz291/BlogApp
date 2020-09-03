@@ -116,6 +116,22 @@ router.get("/postagens/add", (req, res) => {
 
 router.post("/postagens/nova", (req, res) => {
   var erros = [];
+  
+  if (!req.body.titulo || typeof req.body.nome == undefined || req.body.nome == null) {
+    erros.push({text: "Titulo inválido"})
+  }
+
+  if (!req.body.slug || typeof req.body.slug == undefined || req.body.slug == null) {
+    erros.push({text: "Slug inválido"})
+  }
+
+  if (!req.body.conteudo || typeof req.body.conteudo == undefined || req.body.conteudo == null) {
+    erros.push({text: "Conteudo inválido"})
+  }
+
+  if (req.body.titulo.lenght < 2) {
+    erros.push({text: "Titulo da Postagens é muito pequeno"})
+  }
 
   if (req.body.categoria === "0") {
     erros.push({text: "Categoria invalida, registre uma categoria"})
