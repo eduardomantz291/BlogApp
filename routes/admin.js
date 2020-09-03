@@ -102,7 +102,12 @@ router.post('/categorias/deletar/:id', (req,res) => {
 })
 
 router.get("/postagens", (req, res) => {
-  res.render("admin/postagens")
+  Postagens.find().populate("categoria").sort({data: 'desc'}).then((postagens) => {
+    res.render("admin/postagens", {postagens: postagens.map(postagens => postagens.toJSON())});
+  }).catch(err => {
+    req.flash("error_msg", "Houve um erro ao listar as postagens");
+    res.flash("/admin");
+  })
 })
 
 router.get("/postagens/add", (req, res) => {
