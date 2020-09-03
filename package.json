@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eduardomantz291/RegisterWeb.git"
+    "url": "git+https://github.com/eduardomantz291/BlogApp.git"
   },
   "author": "Eduardo Mantz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eduardomantz291/RegisterWeb/issues"
+    "url": "https://github.com/eduardomantz291/BlogApp/issues"
   },
-  "homepage": "https://github.com/eduardomantz291/RegisterWeb#readme",
+  "homepage": "https://github.com/eduardomantz291/BlogApp#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",

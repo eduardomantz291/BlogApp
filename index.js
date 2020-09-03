@@ -35,7 +35,7 @@
     }).then( () => {
       console.log("MongoDB conectado!");
     }).catch( err => {
-      console.log("Houve um erro! " + err);
+      console.log("Houve um erro ao se conectar! " + err);
     })
   //Public
     app.use(express.static(path.join(__dirname, "public")));
