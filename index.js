@@ -51,13 +51,23 @@
     })
   });
 
+  app.get("/postagens/:slug", (req, res) => {
+    Postagens.findOne({slug: req.params.slug}).then((postagens) => {
+      if (postagens) {
+        res.render("post/index", {postagens: postagens.map(postagens => postagens.toJSON())})
+      } else {
+        res.flash("error_msg", "Esta postagens não existe!")
+        res.redirect("/")
+      }
+    }).catch((err) => {
+      req.flash("error_msg", "Houve um erro interno")
+      res.redirect("/")
+    })
+  })
+
   app.get("/404", (req, res) => {
     res.send("Erro GET 404! 472617tgdf78tya78tvfef@$QWRFQW%$WTYGEASD@!TESGBVEG#%#@¨@$&$TR#$@¨TET#Y&RGSGSADGGD$#¨TY$rfjdshoig4e")
   })
-
-  app.get("/", (req, res) => {
-    res.send("rota de posts");
-  });
 
   app.use("/admin", admin)
 //Outros
