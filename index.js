@@ -41,7 +41,7 @@
     app.use(express.static(path.join(__dirname, "public")));
 //Rotas 
   app.get("/", (req, res) => {
-    res.send("rota principal");
+    res.render("index")
   });
 
   app.get("/", (req, res) => {
