@@ -91,13 +91,13 @@ router.post("/categorias/edit", (req, res) => {
   })
 })
 
-router.post('/categorias/deletar/:id', (req,res) => {
-  Categoria.findOneAndDelete({_id: req.params.id}).then(()=> {
-      req.flash('success_msg','Categoria deletada com sucesso')
-      res.redirect('/admin/categorias')
+router.get("/categorias/deletar/:id", (req, res) => {
+  Categoria.remove({_id: req.params.id}).then(() => {
+    req.flash("success_msg", "Categoria deletada com sucesso")
+    res.redirect("/admin/categorias")
   }).catch((err) => {
-      req.flash('error_msg','Houve um erro ao deletar a categoria')
-      res.redirect('/admin/categorias')
+    req.flash("error_msg", "Houve um erro ao deletar a categoria")
+    res.redirect("/admin/categorias")
   })
 })
 
@@ -196,6 +196,16 @@ router.post("/postagens/edit", (req, res) => {
     })
   }).catch((err) => {
     req.flash("error_msg", "Houve um erro ao salvar a categoria" + err)
+    res.redirect("/admin/postagens")
+  })
+})
+
+router.get("/postagens/delet/:id", (req,res) => {
+  Postagens.remove({_id: req.params.id}).then(() => {
+    req.flash("success_msg", "Postagens deletada com sucesso")
+    res.redirect("/admin/postagens")
+  }).catch((err) => {
+    req.flash("error_msg", "Houve um erro interno")
     res.redirect("/admin/postagens")
   })
 })
