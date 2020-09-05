@@ -185,6 +185,7 @@ router.post("/postagens/edit", (req, res) => {
     postagens.descricao = req.body.descricao,
     postagens.conteudo = req.body.conteudo
     postagens.categoria = req.body.categoria
+    postagens.data = new Date
 
     postagens.save().then(() => {
       req.flash("success_msg", "Postagens editada com sucesso!")

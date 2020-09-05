@@ -2,18 +2,20 @@
 <hr>
 <a href="/admin/postagens/add"><button class="btn btn-success">Nova Postagens</button></a>
 
+<hr>
 {{#each postagens}}
   <div class="card mt-4">
     <div class="card-body">
       <h4>{{this.titulo}}</h4>
       <p>Descrição: {{this.descricao}}</p>
+      <hr>
       <small>Data: {{this.data}}</small>
       <small>Categoria: {{this.categoria.nome}}</small><br>
       <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-success mt-3">Ediatr postagens</button></a>
+      <a href="/admin/postagens/delet/{{_id}}"><button class="btn btn-danger mt-3">Deletar postagens</button></a>
     </div>
   </div>
 {{else}}
-  <hr>
   <h3 class="text-center mt-3">Nenhuma postagens registrada!</h3>
-  <hr>
 {{/each}}
+<hr>
