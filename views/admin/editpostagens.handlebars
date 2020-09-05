@@ -5,18 +5,19 @@
 <div class="card">
   <div class="card-body">
     <h4>Editar postagens</h4>
-    <form action="/admin/postagens/nova" method="POST">
+    <form action="/admin/postagens/edit" method="POST">
+      <input type="hidden" value="{{postagens._id}}" name="id">
       <label for="titulo">Titulo:</label>
-      <input type="text" name="titulo" class="form-control" required>
+      <input type="text" name="titulo" class="form-control" value="{{postagens.titulo}}" required>
       <label for="slug">Slug:</label>
-      <input type="text" name="slug" class="form-control" required>
+      <input type="text" name="slug" class="form-control" value="{{postagens.slug}}" required>
       <label for="descricao">Descrição:</label>
-      <input type="text" name="descricao" class="form-control" required>
+      <input type="text" name="descricao" class="form-control" value="{{postagens.descricao}}" required>
       <label for="conteudo">Conteudo:</label>
-      <textarea name="conteudo" class="form-control" cols="20" rows="" required></textarea>
+      <textarea name="conteudo" class="form-control" cols="20" rows="" required>{{postagens.conteudo}}</textarea>
       <label for="categoria">Categoria:</label>
       <select name="categoria" class="custom-select">
-        {{#each categorias}}
+        {{#each categoria}}
           <option value="{{this._id}}">{{this.nome}}</option>
         {{else}}
           <option value="0">Nenhuma categoria registrada</option>
