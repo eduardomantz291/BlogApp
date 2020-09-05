@@ -51,19 +51,25 @@
     })
   });
 
-  app.get("/postagens/:slug", (req, res) => {
-    Postagens.findOne({slug: req.params.slug}).then((postagens) => {
+  app.get('/postagens/:slug', (req,res) => {
+    Postagens.findOne({slug: req.params.slug}).then(postagens => {
       if (postagens) {
-        res.render("post/index", {postagens: postagens.map(postagens => postagens.toJSON())})
+        const post = {
+            titulo: postagens.titulo,
+            data: postagens.data,
+            conteudo: postagens.conteudo
+        }
+        res.render('post/index', post)
       } else {
-        res.flash("error_msg", "Esta postagens não existe!")
+        req.flash("error_msg", "Essa postagem nao existe")
         res.redirect("/")
       }
-    }).catch((err) => {
-      req.flash("error_msg", "Houve um erro interno")
+    }).catch(err => {
+      req.flash("error_msg", "Houve um erro interno" + err)
       res.redirect("/")
     })
-  })
+ })
+
 
   app.get("/404", (req, res) => {
     res.send("Erro GET 404! 472617tgdf78tya78tvfef@$QWRFQW%$WTYGEASD@!TESGBVEG#%#@¨@$&$TR#$@¨TET#Y&RGSGSADGGD$#¨TY$rfjdshoig4e")
