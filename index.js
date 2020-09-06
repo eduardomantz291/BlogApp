@@ -10,6 +10,8 @@
   const flash = require("connect-flash");
   require("./models/postagens")
   const Postagens = mongoose.model("postagens") 
+  require("./models/Categoria")
+  const Categoria = mongoose.model("categorias")
 //Configurações
   //Sessão
     app.use(session({
@@ -70,9 +72,8 @@
     })
  })
 
-
   app.get("/404", (req, res) => {
-    res.send("Erro GET 404! 472617tgdf78tya78tvfef@$QWRFQW%$WTYGEASD@!TESGBVEG#%#@¨@$&$TR#$@¨TET#Y&RGSGSADGGD$#¨TY$rfjdshoig4e")
+    res.send("Erro GET 404!")
   })
 
   app.use("/admin", admin)
