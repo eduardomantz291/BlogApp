@@ -61,7 +61,7 @@
             data: postagens.data,
             conteudo: postagens.conteudo
         }
-        res.render('post/post', post)
+        res.render('page/post', post)
       } else {
         req.flash("error_msg", "Essa postagem nao existe")
         res.redirect("/")
@@ -71,6 +71,14 @@
       res.redirect("/")
     })
  })
+
+  app.get("/categorias", (req, res) => {
+    Categoria.find().then((categorias) => {
+    res.render("page/categoria", {categorias: categorias.map(categoria => categorias.toJSON)})
+    }).catch((err) => {
+      req.flash("erro_mgs", "Houve um erro ao carregar as categorias")
+    })
+  })
 
   app.get("/404", (req, res) => {
     res.send("Erro GET 404!")
