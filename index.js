@@ -61,7 +61,7 @@
             data: postagens.data,
             conteudo: postagens.conteudo
         }
-        res.render('post/index', post)
+        res.render('post/post', post)
       } else {
         req.flash("error_msg", "Essa postagem nao existe")
         res.redirect("/")
