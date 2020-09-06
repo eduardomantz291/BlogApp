@@ -74,7 +74,7 @@
 
   app.get("/categorias", (req, res) => {
     Categoria.find().then((categorias) => {
-    res.render("page/categoria", {categorias: categorias.map(categoria => categorias.toJSON)})
+      res.render("page/categoria", {categorias: categorias.map(categorias => categorias.toJSON())})
     }).catch((err) => {
       req.flash("erro_mgs", "Houve um erro ao carregar as categorias")
     })

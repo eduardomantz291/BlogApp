@@ -1,1 +1,15 @@
-<h1>Ola mundo!</h1>
+<h2>Categoria: </h2>
+
+<hr>
+{{#each categorias}}
+  <div class="card mt-4">
+    <div class="card-body">
+      <h4>{{this.nome}}</h4>
+      <p>{{this.slug}}</p>
+      <small>{{this.date}}</small>
+    </div>
+  </div>
+{{else}}
+  <h4 class="text-center">Nenhuma categoria encontrada</h4>
+{{/each}}
+<hr>
