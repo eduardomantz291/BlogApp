@@ -83,10 +83,10 @@
   app.get("/categorias/:slug", (req, res) => {
     Categoria.findOne({slug: req.params.slug}).then((categoria) => {
       if (categoria) {
-        Postagens.find({categoria: categoria._id}).then((postagens) => {
+        Postagens.find({categoria: categoria._id}).populate("categoria").then((postagens) => {
           res.render("page/postagens", {postagens: postagens.map(postagens => postagens.toJSON()), categoria: categoria})
         }).catch((err) => {
-          req.flash("error_msg", "Houve um erro ao listar as postagens")
+          req.flash("error_msg", "Houve um erro ao listar as postagens" + err)
           res.redirect("/categorias")
         })
       }else {
