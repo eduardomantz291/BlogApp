@@ -4726,10 +4726,10 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
-.card {
-  margin: 0 auto; /* Added */
-  float: none; /* Added */
-  margin-bottom: 10px; /* Added */
+@media (min-width: 1100px) {
+  .card > mx-auto {
+    width: 4rem;
+  }
 }
 
 .card > hr {

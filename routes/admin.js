@@ -45,7 +45,7 @@ router.post("/categoria/nova", (req, res) => {
   }
   
   if (erros.length > 0) {
-    res.render("admin/addcategorias", {erros: erros,})
+    res.render("admin/addcategorias", {erros: erross})
   }else {
     const novaCategoria = {
       nome: req.body.nome,
