@@ -80,6 +80,25 @@
     })
   })
 
+  app.get("/categorias/:slug", (req, res) => {
+    Categoria.findOne({slug: req.params.slug}).then((categoria) => {
+      if (categoria) {
+        Postagens.find({categoria: categoria._id}).then((postagens) => {
+          res.render("page/postagens", {postagens: postagens.map(postagens => postagens.toJSON()), categoria: categoria})
+        }).catch((err) => {
+          req.flash("error_msg", "Houve um erro ao listar as postagens")
+          res.redirect("/categorias")
+        })
+      }else {
+        req.flash("error_msg", "Esta categoria não existe")
+        res.redirect("/categorias")
+      }
+    }).catch((err) => {
+      req.flash("error_msg", "Houve um erro ao carregar a página desta categoria" + err)
+      res.redirect("/")
+    })
+  })
+
   app.get("/404", (req, res) => {
     res.send("Erro GET 404!")
   })
