@@ -38,7 +38,7 @@ router.post("/registro", (req,res) => {
     Usuario.findOne({email: req.body.email}).then((usuario) => {
       if (usuario) {
         req.flash("error_msg", "já existe uma conta com esse email")
-        res.redirect("usuarios/registro")
+        res.redirect("/usuarios/registro")
       }else {
         const novoUsuarios = new Usuario({
           nome: req.body.nome,
