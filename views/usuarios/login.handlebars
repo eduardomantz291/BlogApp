@@ -7,6 +7,10 @@
       <div class="alert alert-danger">{{texto}}</div>
     {{else}}
     {{/each}}
+    {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{else}}
+    {{/if}}
     <form action="/usuarios/login" method="POST">
       <label for="email">Email:</label>
         <input type="email" class="form-control" name="email" placeholder="name@example.com">
