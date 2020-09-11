@@ -47,11 +47,9 @@ Meus desafios:
 
 [15] faser hash da senha com bcryptjs.
 
-[16] mexer com o passport
+[16] congigurar o passport 
 
-[17] congigurar o passport 
-
-[18] fazer a autenticação do usuario.
+[17] fazer a autenticação do usuario.
 
 
 

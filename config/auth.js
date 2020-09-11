@@ -14,9 +14,9 @@ module.exports = function(passport) {
       }else {
         bcrypt.compare(senha, usuario.senha,  (erro, batem) => {
           if (batem) {
-            return done(null, usuario)
+            return done(null, usuario, {message: "Logado com successo"})
           } else {
-            return done(null, false, {message: "Senha incorreta"})
+            return done(null, false, {message: "Senha ou email Incorreto"})
           }
         })
       }
