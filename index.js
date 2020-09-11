@@ -17,6 +17,7 @@
   require("./models/usuario")
   const Usuario = mongoose.model("usuarios")
   require("./config/auth")(passport)
+  const db = require("./config/db")
 //Configurações
   //Sessão
     app.use(session({
@@ -45,7 +46,7 @@
     app.set("view engine", "handlebars");
   // Mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect("mongodb://localhost/blogapp", {
+    mongoose.connect(db.mongoURL, {
       useNewUrlParser: true, useUnifiedTopology: true
     }).then( () => {
       console.log("MongoDB conectado!");
@@ -117,7 +118,7 @@
   app.use("/admin", admin)
   app.use("/usuarios", usuarios)
 //Outros
-const PORT= 5500
+const PORT = process.env.PORT || 5500
 app.listen(PORT, () => {
   console.log("Servidor rodando!");
   console.log("URL: http://localhost:5500");
