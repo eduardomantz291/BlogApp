@@ -6,11 +6,14 @@ const Categoria = mongoose.model("categorias")
 require("../models/postagens")
 const Postagens = mongoose.model("postagens")
 const {eAdmin} = require("../helpers/eAdmin")
-require("../models/usuario")
-const Usuario = mongoose.model("usuarios")
 
 router.get("/", eAdmin, (req, res) => {
-  res.render("admin/index")
+  Postagens.find().populate("categoria").sort({data: 'desc'}).then((postagens) => {
+    res.render("admin/index", {postagens: postagens.map(postagens => postagens.toJSON())})
+  }).catch(err => {
+    req.flash("error_msg", "Houve um erro ao listar as postagens na pagina admin")
+    res.redirect("/")
+  })
 });
 
 router.get("/post", eAdmin, (req, res) => {
