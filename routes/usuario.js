@@ -45,7 +45,8 @@ router.post("/registro", (req,res) => {
         const novoUsuarios = new Usuario({
           nome: req.body.nome,
           email: req.body.email,
-          senha: req.body.senha
+          senha: req.body.senha,
+          eAdmin: 1
         })
 
         bcrypt.genSalt(10, (erro, salt) => {
@@ -81,11 +82,17 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/admin",
     failureRedirect: "/usuarios/login",
     failureFlash: true
   })(req, res, next) 
   
+})
+
+router.get("/logout", (req, res) => {
+  req.logout()
+  req.flash("success_msg", "Deslogado com sucesso")
+  res.redirect("/")
 })
 
 module.exports = router

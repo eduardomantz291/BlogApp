@@ -14,11 +14,13 @@
   const Postagens = mongoose.model("postagens") 
   require("./models/Categoria")
   const Categoria = mongoose.model("categorias")
+  require("./models/usuario")
+  const Usuario = mongoose.model("usuarios")
   require("./config/auth")(passport)
 //Configurações
   //Sessão
     app.use(session({
-      secret: "nomedomeupat",
+      secret: "usuarios",
       resave: true,
       saveUninitialized: true
     }));
@@ -33,6 +35,7 @@
       res.locals.error_msg = req.flash("error_msg")
       res.locals.error = req.flash("error")
       res.locals.user = req.user || null
+      res.locals.Usuario = Usuario || null
       next()
     })
   //BodyParser

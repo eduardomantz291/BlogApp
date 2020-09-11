@@ -6,9 +6,11 @@ const Categoria = mongoose.model("categorias")
 require("../models/postagens")
 const Postagens = mongoose.model("postagens")
 const {eAdmin} = require("../helpers/eAdmin")
+require("../models/usuario")
+const Usuario = mongoose.model("usuarios")
 
 router.get("/", eAdmin, (req, res) => {
-  res.render("admin/index");
+  res.render("admin/index")
 });
 
 router.get("/post", eAdmin, (req, res) => {
