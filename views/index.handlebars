@@ -2,8 +2,11 @@
   <h1 class="display-4">Bem vindo ao BlogWeb</h1>
   <p class="lead">Site para aprender coisas novas e avançar para o proximo nivel.</p>
   <hr class="my-4">
-  <p>Para começar, crie uma conta para ver postagens ou criar postagens</p>
-  <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Criar uma conta</a>
+  {{#if user}}
+  {{else}}
+    <p>Para começar, crie uma conta para ver postagens ou criar postagens</p>
+    <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Criar uma conta</a>
+  {{/if}}
 </div>
 <hr>
 <h2>Postagens recentes:</h2>

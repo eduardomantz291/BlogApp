@@ -64,8 +64,8 @@
     })
   });
 
-  app.get('/postagens/:slug', (req,res) => {
-    Postagens.findOne({slug: req.params.slug}).then(postagens => {
+  app.get('/postagens/:id', (req,res) => {
+    Postagens.findOne({_id: req.params.id}).then(postagens => {
       if (postagens) {
         const post = {
             titulo: postagens.titulo,

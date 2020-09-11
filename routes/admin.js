@@ -51,7 +51,7 @@ router.post("/categoria/nova", eAdmin, (req, res) => {
   }
   
   if (erros.length > 0) {
-    res.render("admin/addcategorias", {erros: erross})
+    res.render("admin/addcategorias", {erros: erros})
   }else {
     const novaCategoria = {
       nome: req.body.nome,
