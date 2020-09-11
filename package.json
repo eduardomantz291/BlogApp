@@ -1,11 +1,11 @@
 {
   "name": "blogapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "BlogWeb",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
