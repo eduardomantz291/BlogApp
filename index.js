@@ -1,7 +1,7 @@
 //Carregando modules
   const express = require("express");
   const handlebars = require("express-handlebars");
-  const bodyParser = require("body-Parser")
+  const bodyParser = require("body-parser")
   const app = express();
   const path = require("path");
   const admin = require("./routes/admin")
