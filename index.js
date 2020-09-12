@@ -46,7 +46,7 @@
     app.set("view engine", "handlebars");
   // Mongoose
     mongoose.Promise = global.Promise;
-    mongoose.connect(db.mongoURL, {
+    mongoose.connect(db.mongoURI, {
       useNewUrlParser: true, useUnifiedTopology: true
     }).then( () => {
       console.log("MongoDB conectado!");
