@@ -1,78 +1,60 @@
-BlogWeb 
+<p align="center">
+    <img alt="Github language count" src="https://img.shields.io/github/languages/count/eduardomantz291/BlogApp">
+
+  <img alt="Github language count" src="https://img.shields.io/github/languages/top/eduardomantz291/BlogApp">
+
+  <a href="https://expressjs.com/">
+    <img alt="ReactJS version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/express">
+  </a>
+
+  <a href="https://handlebarsjs.com/">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/handlebars">
+  </a>
+
+  <a href="http://www.passportjs.org//">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/passport">
+  </a>
+
+  <a href="https://www.npmjs.com/package/bcryptjs">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/bcryptjs">
+  </a>
+
+  <a href="https://www.npmjs.com/package/bcryptjs">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/body-parser">
+  </a>
+
+  <a href="https://www.npmjs.com/package/body-parser">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/body-parser">
+  </a>
+
+  <a href="https://mongoosejs.com/">
+    <img alt="Typescript version" src="https://img.shields.io/github/package-json/dependency-version/eduardomantz291/BlogApp/mongoose">
+  </a>
+
+  <img alt="Github last commit" src="https://img.shields.io/github/last-commit/eduardomantz291/BlogApp">
+</p>
+
+## :bulb: About Project
+<span style="color:deepskyblue; font-weight:bold;">BlogWeb</span> is a web application made on the main **NodeJS** technologies such as <span style="color:darkslateblue; font-weight:bold;">expressjs, mongoose and handlebars,</span> whose purpose is to make the user post something about the world of programming, and news.
 
 
-Sobre:
-O BlogWeb é um site de a onde as pessoas vão poder postar conteudo sobre qualquer coisa, tipo, coisa sobre programação, estudo de escola, 
-notisias sobre o mundo e etc. 
+## :gear: Getting Started
 
+```Bash
+# Install dependencies
+npm install
 
+# Run application
+npm run dev
+```
 
+> Access the URL in your browser http://localhost:3000
 
+## Technology
 
-
-Inicio do projeto:
-
-esse projeto teve início quando eu me aprofundei no estudo sobre NodeJs e comecei a estudar MongoDB com mongoose.
-
-
-Meus desafios: 
-
-[1] o meu primeiro desafio, foi na hora de escolher SQL ou MongoDB.
-
-[2] segundo desafio, eu não sabia como lidar com a estrutudo de pasta do projeto.
-
-[3] faser um estilo pro site.
-
-[4] escolher o nunjuck ou handlebars.
-
-[5] criar model de Categorias e formulário de nova categoria.
-
-[6] foi listar as Categorias.
-
-[7] fazer a edição de categoria.
-
-[8] fazer botão de deletar categoria e postagens.
-
-[9] listar as postagens na rota principal. 
-
-[10] fazer a parte do conteudo da postagens.
-
-[11] fazer uma busca de postagens pelo slug da categoria.
-
-[12] listar só as postagens da aquela categoria.
-
-[13] fazer o formulário de registro.
-
-[14] salvar os dados do formulário de registro no banco de dados.
-
-[15] faser hash da senha com bcryptjs.
-
-[16] congigurar o passport 
-
-[17] fazer a autenticação do usuario.
-
-
-
-Como resulvi:
-
-[1] eu estava com muita duvita em qual user, o SQL ou MongoDB, por fim acabei usando o MongoDB e comecei o meu estudo de mongoose.
-
-[2] não sabia muito como organizar os meus arquivo e pasta do meus projeto, mas acabei ficando com uma estrutura bem simples boa. 
-
-[3] não sabia muito como eu ai fazer o estilo do meu site e dando uma pesquisada no google acabei achado o bootstrap que me ajudou muito.
-
-[4] estava com duvias em qual escolher, o nunjuck que eu já sabia como usar, ou o handlebars que um amigo me falou sobre, acabei usando o handlebars e iníciem o meu estudo de handlabars.
-
-[5] para criar o model de categoria, foi  dificel porque eu nunca dinha mexedo com o mongoose, mas dando uma olhada na documentação do mongoose acabei conseguindo.
-
-[6] isso me deu muitos problemas, porque o handlebars não estava conseguindo pegar os dados do banco de dados que estava como Arry, ai eu tive que usar a função map() para percorre em todo o Arry e tranformar em um JSON com a função toJSON()
-
-[7] nessa parte não foi tão dificel, mas custo um tempo da minha vida, eu só tinha que atualizar os dados que já estavão salvos no bando de dados.
-
-[8] na parte do butão para de deletar categoria e postagens eu tinha que usar o remove() e passar os parametros:
-Categoria.remove({_id: req.params.id})
-
-[9] foi um desafil bem simples para listar as postagens com as categorias, so tive que usar o populate() e passar a collection que ia usar,
-no caso eu coloquei assim : Postagens.find().populate("categotia")
-
-[10] na hora de fazer a busca do conteudo pelo slug da postagens eu só tive que usar: Postagens.findOne({_id: req.params.slug}).... 
+- [ExpressJS](https://expressjs.com/)
+- [Handlebars](https://handlebarsjs.com/)
+- [Passport](http://www.passportjs.org//)
+- [BcryptJS](https://www.npmjs.com/package/bcryptjs)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Mongoose](https://mongoosejs.com/)

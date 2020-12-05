@@ -16,13 +16,9 @@ router.get("/", eAdmin, (req, res) => {
   })
 });
 
-router.get("/post", eAdmin, (req, res) => {
-  res.render("pagina de  post");
-});
-
 router.get('/categorias', eAdmin, (req, res) => {
   Categoria.find().sort({date: "desc"}).then((categorias) => {
-      res.render('./admin/categorias', {categorias: categorias.map(categorias => categorias.toJSON())})    
+      res.render('./admin/categorias', {categorias: categorias.map(categorias => categorias.toJSON())})
   }).catch((err) => {
       req.flash("error_msg", "Houve um erro ao listar a categorias")
       res.redirect("/admin")
@@ -35,9 +31,9 @@ router.get("/categorias/add", eAdmin, (req, res) => {
 
 
 router.post("/categoria/nova", eAdmin, (req, res) => {
-  
+
   var erros = [];
-  
+
   if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null) {
     erros.push({text: "Nome inválido"})
   }
@@ -49,7 +45,7 @@ router.post("/categoria/nova", eAdmin, (req, res) => {
   if (req.body.nome.lenght < 2) {
     erros.push({text: "Nome da categoria é muito pequeno"})
   }
-  
+
   if (erros.length > 0) {
     res.render("admin/addcategorias", {erros: erros})
   }else {
@@ -57,7 +53,7 @@ router.post("/categoria/nova", eAdmin, (req, res) => {
       nome: req.body.nome,
       slug: req.body.slug
     }
-  
+
     new Categoria(novaCategoria).save().then(() => {
       req.flash("success_msg", "Categoria criada com sucesso!")
       res.redirect("/admin/categorias")
@@ -127,7 +123,7 @@ router.get("/postagens/add", eAdmin, (req, res) => {
 
 router.post("/postagens/nova", eAdmin, (req, res) => {
   var erros = [];
-  
+
   if (!req.body.titulo || typeof req.body.nome == undefined || req.body.nome == null) {
     erros.push({text: "Titulo inválido"})
   }
@@ -165,7 +161,7 @@ router.post("/postagens/nova", eAdmin, (req, res) => {
       req.flash("error_msg", "Houve um erro ao salvamendo da postagens ")
       res.redirect("/admin/postagens")
     })
-  } 
+  }
 
 })
 

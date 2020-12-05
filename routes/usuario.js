@@ -64,7 +64,7 @@ router.post("/registro", (req,res) => {
             }).catch(err => {
               req.flash("error_msg", "Houve um erro ao criar o usuarios")
               res.redirect("usuarios/registro")
-            }) 
+            })
           })
         })
 
@@ -85,8 +85,8 @@ router.post("/login", (req, res, next) => {
     successRedirect: "/admin",
     failureRedirect: "/usuarios/login",
     failureFlash: true
-  })(req, res, next) 
-  
+  })(req, res, next)
+
 })
 
 router.get("/logout", (req, res) => {

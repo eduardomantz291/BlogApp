@@ -11,7 +11,7 @@
   const flash = require("connect-flash");
   const passport = require("passport");
   require("./models/postagens")
-  const Postagens = mongoose.model("postagens") 
+  const Postagens = mongoose.model("postagens")
   require("./models/Categoria")
   const Categoria = mongoose.model("categorias")
   require("./models/usuario")
@@ -55,7 +55,7 @@
     })
   //Public
     app.use(express.static(path.join(__dirname, "public")));
-//Rotas 
+//Rotas
   app.get("/", (req, res) => {
     Postagens.find().populate("categoria").sort({data: "desc"}).then((postagens) => {
       res.render("index", {postagens: postagens.map(postagens => postagens.toJSON())})
@@ -63,6 +63,10 @@
       req.flash("error_msg", "Houve um erro interno")
       res.redirect("/404")
     })
+    
+    if(req.user) {
+      console.log(req.user.id);
+    }
   });
 
   app.get('/postagens/:id', (req,res) => {
@@ -118,8 +122,8 @@
   app.use("/admin", admin)
   app.use("/usuarios", usuarios)
 //Outros
-const PORT = process.env.PORT || 5500
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log("Servidor rodando!");
-  console.log("URL: http://localhost:5500");
+  console.log("URL: http://localhost:3000");
 });
