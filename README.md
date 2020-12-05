@@ -35,7 +35,7 @@
 </p>
 
 ## :bulb: About Project
-<span style="color:deepskyblue; font-weight:bold;">BlogWeb</span> is a web application made on the main **NodeJS** technologies such as <span style="color:darkslateblue; font-weight:bold;">expressjs, mongoose and handlebars,</span> whose purpose is to make the user post something about the world of programming, and news.
+<span style="color:deepskyblue; font-weight:bold;">BlogWeb</span> is a web application made on the main **NodeJS** technologies such as <span style="color:darkslateblue; font-weight:bold;">expressjs, handlebars and mongoose,</span> whose purpose is to make the user post something about the world of programming, and news.
 
 
 ## :gear: Getting Started
